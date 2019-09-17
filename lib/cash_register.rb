@@ -1,11 +1,10 @@
-require 'pry'
 class CashRegister
     attr_accessor :discount, :total, :items
 
     def initialize(discount=nil)
         @total = 0.0
         @items = []
-        @discount = discount.to_f
+        @discount = discount
     end
 
     def add_item(item, cost, quantity=1)
@@ -17,9 +16,8 @@ class CashRegister
         if @discount == nil
             return "There is no discount to apply."
         else
-            @total *= (1-(@discount/100.0))
-            return "After the discount, the total comes out to #{@total}"
+            @total *= (1-(@discount.to_f/100.0))
+            return "After the discount, the total comes to $#{@total.to_i}."
         end
-        binding.pry
     end
 end #END CashRegister
