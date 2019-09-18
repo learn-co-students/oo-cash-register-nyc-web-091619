@@ -8,8 +8,8 @@ class CashRegister
     end
 
     def add_item(item, cost, quantity=1)
-        @items << self
         @total += cost * quantity
+        quantity.times{@items << item}
     end
 
     def apply_discount
@@ -20,4 +20,9 @@ class CashRegister
             return "After the discount, the total comes to $#{@total.to_i}."
         end
     end
+
+    def void_last_transaction
+        @items[-1]
+    end
+
 end #END CashRegister
