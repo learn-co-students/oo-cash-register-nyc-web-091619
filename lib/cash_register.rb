@@ -11,14 +11,14 @@ end
 
 def add_item(item, price, quantity)
     self.total += item * quantity
-    quantity.times do
+    
     quantity << item
 
 end
 
 def apply_discount
     if discount != 0
-        self.total = ((total -total * discount)/100.00)
+        self.total = ((total - total * discount)/100.00)
         puts "After the discount, the total comes to #{self.total}"
     else 
         puts "There is no discount to apply"
